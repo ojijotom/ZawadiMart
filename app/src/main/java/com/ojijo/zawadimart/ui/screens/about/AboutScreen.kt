@@ -11,4 +11,6 @@ fun AboutScreen(){
 @Composable
 fun AboutScreenPreview(){
 
+    AboutScreen()
+
 }
