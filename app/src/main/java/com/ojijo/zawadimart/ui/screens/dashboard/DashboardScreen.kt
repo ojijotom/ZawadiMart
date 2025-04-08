@@ -208,7 +208,8 @@ fun DashboardScreen(navController: NavController){
                         modifier = Modifier.size(100.dp)
 
                     )
-                    Text(text = "Home", fontSize = 15.sp)
+                    Text(text = "Products" +
+                            "", fontSize = 15.sp)
                 }
             }
 
