@@ -2,6 +2,7 @@ package com.ojijo.zawadimart.ui.screens.dashboard
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,7 +15,10 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.handwriting.handwritingHandler
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Card
@@ -35,6 +39,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ojijo.zawadimart.R
+import com.ojijo.zawadimart.navigation.ROUT_ABOUT
+import com.ojijo.zawadimart.navigation.ROUT_HOME
+import com.ojijo.zawadimart.navigation.ROUT_ITEM
 import com.ojijo.zawadimart.ui.theme.newOrange
 import com.ojijo.zawadimart.ui.theme.newWhite
 
@@ -44,7 +51,10 @@ import com.ojijo.zawadimart.ui.theme.newWhite
 fun DashboardScreen(navController: NavController){
 
     Column (
-        modifier = Modifier.fillMaxSize().background(newOrange)
+        modifier = Modifier
+            .fillMaxSize()
+            .background(newOrange)
+            .verticalScroll(rememberScrollState())
     ){
         Box (){
             //Card
@@ -78,15 +88,24 @@ fun DashboardScreen(navController: NavController){
 
             ){
                 Column (
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().handwritingHandler(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center
 
 
                 ){
                     Text(
-                        text = "Welcome Here!"
+                        text = "Welcome Here!",
+                        )
+                    Text(
+                        text = "WE VALUE YOUR MONEY!",
+                    )
 
+
+                    Image(
+                        painter = painterResource(R.drawable.fruits),
+                        contentDescription = "",
+                        modifier = Modifier.size(100.dp)
 
                     )
 
@@ -110,7 +129,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card1
             Card (
-                modifier = Modifier.width(150.dp).height(180.dp)
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable{navController.navigate(ROUT_HOME)}
             ){
                 Column (
                     modifier = Modifier.fillMaxSize(),
@@ -135,7 +157,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card2
             Card (
-                modifier = Modifier.width(150.dp).height(180.dp)
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable{navController.navigate(ROUT_ABOUT)}
             ){
                 Column (
                     modifier = Modifier.fillMaxSize(),
@@ -148,7 +173,7 @@ fun DashboardScreen(navController: NavController){
                         modifier = Modifier.size(100.dp)
 
                     )
-                    Text(text = "Home", fontSize = 15.sp)
+                    Text(text = "About", fontSize = 15.sp)
                 }
             }
 
@@ -183,7 +208,7 @@ fun DashboardScreen(navController: NavController){
                         modifier = Modifier.size(100.dp)
 
                     )
-                    Text(text = "Home", fontSize = 15.sp)
+                    Text(text = "Contact", fontSize = 15.sp)
                 }
             }
 
@@ -195,7 +220,10 @@ fun DashboardScreen(navController: NavController){
 
             //Card2
             Card (
-                modifier = Modifier.width(150.dp).height(180.dp)
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(180.dp)
+                    .clickable{navController.navigate(ROUT_ITEM)}
             ){
                 Column (
                     modifier = Modifier.fillMaxSize(),
@@ -203,7 +231,7 @@ fun DashboardScreen(navController: NavController){
                     verticalArrangement = Arrangement.Center
                 ){
                     Image(
-                        painter = painterResource(R.drawable.img_1),
+                        painter = painterResource(R.drawable.img_2),
                         contentDescription = "Products",
                         modifier = Modifier.size(100.dp)
 

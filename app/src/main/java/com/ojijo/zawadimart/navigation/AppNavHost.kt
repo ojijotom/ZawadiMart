@@ -11,13 +11,14 @@ import com.ojijo.zawadimart.ui.screens.dashboard.DashboardScreen
 import com.ojijo.zawadimart.ui.screens.home.HomeScreen
 import com.ojijo.zawadimart.ui.screens.intent.IntentScreen
 import com.ojijo.zawadimart.ui.screens.item.ItemScreen
+import com.ojijo.zawadimart.ui.screens.service.ServiceScreen
 import com.ojijo.zawadimart.ui.screens.start.StartScreen
 
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_HOME
+    startDestination: String = ROUT_SERVICE
 ) {
 
     NavHost(
@@ -43,6 +44,10 @@ fun AppNavHost(
         composable(ROUT_DASHBOARD) {
             DashboardScreen(navController)
         }
+        composable(ROUT_SERVICE) {
+            ServiceScreen(navController)
+        }
+
 
     }
 }
