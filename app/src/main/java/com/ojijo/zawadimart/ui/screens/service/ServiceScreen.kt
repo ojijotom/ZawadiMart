@@ -10,7 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
@@ -38,13 +40,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -163,7 +170,6 @@ fun ServiceScreen(navController: NavController){
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-
                 Image(
                     painter = painterResource(R.drawable.oder1),
                     contentDescription = "",
@@ -172,194 +178,192 @@ fun ServiceScreen(navController: NavController){
                 )
                 Spacer(modifier = Modifier.height(20.dp))
 
-                //Row1
-                Row (modifier = Modifier.padding(start = 20.dp)){
+                Column (modifier = Modifier.verticalScroll(rememberScrollState())){
 
-                    Image(
-                        painter = painterResource(R.drawable.fruits),
-                        contentDescription = "fruits",
-                        modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
-                        contentScale = ContentScale.FillWidth
+                    Column() {Text(
+                        text = "Get Your Taste Here!",
+                        fontSize = 50.sp,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        fontStyle = FontStyle.Italic,
+                        color = Color.Magenta,
+                        fontFamily = FontFamily.Cursive
 
-                    )
+                    )  }
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+
+                    //Row1
+                    Row (modifier = Modifier.padding(start = 20.dp)){
+
+                        Image(
+                            painter = painterResource(R.drawable.img_4),
+                            contentDescription = "Fat and Oil",
+                            modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                            contentScale = ContentScale.FillWidth
+
+                        )
+
+                        Spacer(modifier = Modifier.width(20.dp))
+
+
+                        Column {
+                            Text(
+                                text = "Fats",
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                text = "ksh.500",
+                                fontSize = 15.sp,
+                                textDecoration = TextDecoration.LineThrough
+                            )
+                            Text(
+                                text = "Price ksh.450",
+                                fontSize = 15.sp,
+                            )
+                            Row {
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
+                            }
+
+                            Button(
+                                onClick = {
+                                    val callIntent=Intent(Intent.ACTION_DIAL)
+                                    callIntent.data="tel:0720245837".toUri()
+                                    mContext.startActivity(callIntent)
+                                },
+                                colors = ButtonDefaults.buttonColors(newOrange),
+                                shape = RoundedCornerShape(10.dp)
+                            ) {
+                                Text(text = "Contact Us")
+                            }
+
+
+                        }
+
+                    }
+                    //End of Row1
 
                     Spacer(modifier = Modifier.width(20.dp))
 
 
-                    Column {
-                        Text(
-                            text = "Fruits",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "ksh.1000",
-                            fontSize = 15.sp,
-                            textDecoration = TextDecoration.LineThrough
-                        )
-                        Text(
-                            text = "Price ksh.500",
-                            fontSize = 15.sp,
-                        )
-                        Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
-                        }
+                    //Row2
+                    Row (modifier = Modifier.padding(start = 20.dp)){
 
-                        Button(
-                            onClick = {
-                                val callIntent=Intent(Intent.ACTION_DIAL)
-                                callIntent.data="tel:0720245837".toUri()
-                                mContext.startActivity(callIntent)
-                            },
-                            colors = ButtonDefaults.buttonColors(newOrange),
-                            shape = RoundedCornerShape(10.dp)
-                        ) {
-                            Text(text = "Contact Us")
-                        }
+                        Image(
+                            painter = painterResource(R.drawable.img_3),
+                            contentDescription = "Vegetable",
+                            modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                            contentScale = ContentScale.FillWidth
 
+                        )
+
+                        Spacer(modifier = Modifier.width(20.dp))
+
+
+                        Column {
+                            Text(
+                                text = "Vegetables",
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                text = "ksh.300",
+                                fontSize = 15.sp,
+                                textDecoration = TextDecoration.LineThrough
+                            )
+                            Text(
+                                text = "Price ksh.250",
+                                fontSize = 15.sp,
+                            )
+                            Row {
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
+                            }
+
+                            Button(
+                                onClick = {
+                                    val callIntent=Intent(Intent.ACTION_DIAL)
+                                    callIntent.data="tel:0720245837".toUri()
+                                    mContext.startActivity(callIntent)
+                                },
+                                colors = ButtonDefaults.buttonColors(newOrange),
+                                shape = RoundedCornerShape(10.dp)
+                            ) {
+                                Text(text = "Contact Us")
+                            }
+
+
+                        }
 
                     }
-
-                }
-                //End of Row1
-
-                Spacer(modifier = Modifier.width(20.dp))
-
-
-                //Row2
-                Row (modifier = Modifier.padding(start = 20.dp)){
-
-                    Image(
-                        painter = painterResource(R.drawable.fruits),
-                        contentDescription = "fruits",
-                        modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
-                        contentScale = ContentScale.FillWidth
-
-                    )
+                    //End of Row2
 
                     Spacer(modifier = Modifier.width(20.dp))
 
+                    //Row3
+                    Row (modifier = Modifier.padding(start = 20.dp)){
 
-                    Column {
-                        Text(
-                            text = "Fruits",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
+                        Image(
+                            painter = painterResource(R.drawable.fruits),
+                            contentDescription = "fruits",
+                            modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
+                            contentScale = ContentScale.FillWidth
+
                         )
-                        Text(
-                            text = "ksh.1000",
-                            fontSize = 15.sp,
-                            textDecoration = TextDecoration.LineThrough
-                        )
-                        Text(
-                            text = "Price ksh.500",
-                            fontSize = 15.sp,
-                        )
-                        Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
+
+                        Spacer(modifier = Modifier.width(20.dp))
+
+
+                        Column {
+                            Text(
+                                text = "Fruits",
+                                fontSize = 20.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                            Text(
+                                text = "ksh.1000",
+                                fontSize = 15.sp,
+                                textDecoration = TextDecoration.LineThrough
+                            )
+                            Text(
+                                text = "Price ksh.500",
+                                fontSize = 15.sp,
+                            )
+                            Row {
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
+                                Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
+                            }
+
+                            Button(
+                                onClick = {
+                                    val callIntent=Intent(Intent.ACTION_DIAL)
+                                    callIntent.data="tel:0720245837".toUri()
+                                    mContext.startActivity(callIntent)
+                                },
+                                colors = ButtonDefaults.buttonColors(newOrange),
+                                shape = RoundedCornerShape(10.dp)
+                            ) {
+                                Text(text = "Contact Us")
+                            }
+
+
                         }
-
-                        Button(
-                            onClick = {
-                                val callIntent=Intent(Intent.ACTION_DIAL)
-                                callIntent.data="tel:0720245837".toUri()
-                                mContext.startActivity(callIntent)
-                            },
-                            colors = ButtonDefaults.buttonColors(newOrange),
-                            shape = RoundedCornerShape(10.dp)
-                        ) {
-                            Text(text = "Contact Us")
-                        }
-
 
                     }
-
+                    //End of Row3
                 }
-                //End of Row2
-
-                Spacer(modifier = Modifier.width(20.dp))
-
-                //Row3
-                Row (modifier = Modifier.padding(start = 20.dp)){
-
-                    Image(
-                        painter = painterResource(R.drawable.fruits),
-                        contentDescription = "fruits",
-                        modifier = Modifier.width(200.dp).height(150.dp).clip(shape = RoundedCornerShape(20.dp)),
-                        contentScale = ContentScale.FillWidth
-
-                    )
-
-                    Spacer(modifier = Modifier.width(20.dp))
-
-
-                    Column {
-                        Text(
-                            text = "Fruits",
-                            fontSize = 20.sp,
-                            fontWeight = FontWeight.Bold
-                        )
-                        Text(
-                            text = "ksh.1000",
-                            fontSize = 15.sp,
-                            textDecoration = TextDecoration.LineThrough
-                        )
-                        Text(
-                            text = "Price ksh.500",
-                            fontSize = 15.sp,
-                        )
-                        Row {
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = newOrange)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
-                            Icon(imageVector = Icons.Default.Star, contentDescription = "", tint = Color.Gray)
-                        }
-
-                        Button(
-                            onClick = {
-                                val callIntent=Intent(Intent.ACTION_DIAL)
-                                callIntent.data="tel:0720245837".toUri()
-                                mContext.startActivity(callIntent)
-                            },
-                            colors = ButtonDefaults.buttonColors(newOrange),
-                            shape = RoundedCornerShape(10.dp)
-                        ) {
-                            Text(text = "Contact Us")
-                        }
-
-
-                    }
-
-                }
-                //End of Row3
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             }

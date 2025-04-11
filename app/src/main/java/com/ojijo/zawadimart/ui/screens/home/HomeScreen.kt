@@ -1,6 +1,7 @@
 package com.ojijo.zawadimart.ui.screens.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,8 +10,10 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
@@ -29,7 +32,9 @@ import com.ojijo.zawadimart.navigation.ROUT_START
 fun HomeScreen(navController: NavController){
 
     Column (
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier
+            .fillMaxSize()
+            .paint(painter = painterResource(R.drawable.img_5), contentScale = ContentScale.FillBounds)
     ){
         Text(
             text = "ZawadiMart",
@@ -47,7 +52,7 @@ fun HomeScreen(navController: NavController){
 
 
         Image(
-            painter = painterResource(R.drawable.oji1),
+            painter = painterResource(R.drawable.ojijo),
             contentDescription = "oji1"
         )
 
