@@ -186,9 +186,7 @@ fun AssignmentScreen(navController: NavController){
                 Box (modifier = Modifier.verticalScroll(rememberScrollState())){
                     //Card
                     Card (
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(450.dp)
+                        modifier = Modifier.fillMaxWidth().height(450.dp)
                         ,
                         colors = CardDefaults.cardColors(newWhite)
                     ){

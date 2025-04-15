@@ -205,11 +205,6 @@ fun FormScreen(navController: NavController){
             shape = RoundedCornerShape(10.dp),
             modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp)
         ) {
-
-
-
-
-
             Text(text = "Register")
         }
 
