@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ojijo.zawadimart.R
+import com.ojijo.zawadimart.navigation.ROUT_LOGIN
 import com.ojijo.zawadimart.navigation.ROUT_SPLASH
 import com.ojijo.zawadimart.navigation.ROUT_START
 import com.ojijo.zawadimart.ui.theme.newOrange
@@ -33,7 +34,7 @@ fun SplashScreen(navController: NavController){
     val coroutine = rememberCoroutineScope()
     coroutine.launch {
         kotlinx.coroutines.delay(2000)
-        navController.navigate(ROUT_START)
+        navController.navigate(ROUT_LOGIN)
     }
 
 

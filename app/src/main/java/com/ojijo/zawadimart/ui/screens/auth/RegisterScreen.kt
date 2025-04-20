@@ -43,6 +43,8 @@ fun RegisterScreen(
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var confirmPassword by remember { mutableStateOf("") }
+
+
     var passwordVisible by remember { mutableStateOf(false) }
     var confirmPasswordVisible by remember { mutableStateOf(false) }
     val context = LocalContext.current
@@ -62,7 +64,7 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(8.dp))
         AnimatedVisibility(visible = true, enter = fadeIn(), exit = fadeOut()) {
             Text(
-                "Create Your Account",
+                "Create Your Account With ZawadiMart",
                 fontSize = 40.sp,
                 fontFamily = FontFamily.Cursive
             )
@@ -190,7 +192,7 @@ fun RegisterScreen(
             Button(
                 onClick = {
                     if (username.isBlank() || email.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
-                        Toast.makeText(context, "All fields are required", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "All fields are required", Toast.LENGTH_SHORT).show() // To display a massage
                     } else if (password != confirmPassword) {
                         Toast.makeText(context, "Passwords do not match", Toast.LENGTH_SHORT).show()
                     } else {
@@ -208,7 +210,7 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(5.dp))
 
         TextButton(
-            onClick = { navController.navigate(ROUT_LOGIN) }
+            onClick = { navController.navigate(ROUT_LOGIN) }//To make text clickable
         ) {
             Text("Already have an account? Login")
         }

@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.ojijo.zawadimart.navigation.ROUT_DASHBOARD
 import com.ojijo.zawadimart.navigation.ROUT_HOME
 import com.ojijo.zawadimart.ui.theme.newOrange
 
@@ -57,7 +58,7 @@ fun ContactScreen(navController: NavController){
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = newOrange,
+                    containerColor = Color.Blue,
                     titleContentColor = Color.White,
                     navigationIconContentColor = Color.White
                 )
@@ -67,7 +68,7 @@ fun ContactScreen(navController: NavController){
         //BottomBar
         bottomBar = {
             NavigationBar(
-                containerColor = newOrange
+                containerColor = Color.Blue
             ){
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
@@ -82,7 +83,7 @@ fun ContactScreen(navController: NavController){
                     label = { Text("Favorites") },
                     selected = selectedIndex == 1,
                     onClick = { selectedIndex = 1
-                        navController.navigate(ROUT_HOME)
+                        navController.navigate(ROUT_DASHBOARD)
                     }
                 )
                 NavigationBarItem(
@@ -105,16 +106,6 @@ fun ContactScreen(navController: NavController){
             }
         },
 
-        //FloatingActionButton
-        floatingActionButton = {
-            FloatingActionButton(
-                onClick = { /* Add action */ },
-                containerColor = newOrange
-            ) {
-                Icon(Icons.Default.Add, contentDescription = "Add")
-            }
-        },
-
         //Contents
         content = { paddingValues ->
             Column(
@@ -125,9 +116,6 @@ fun ContactScreen(navController: NavController){
 
 
                 //Main Contents of the page
-                Text(text = "Welcome to Homescreen Screen", fontSize = 20.sp)
-                Spacer(modifier = Modifier.height(8.dp))
-                Text("This is where the main content goes.")
 
 
             }
