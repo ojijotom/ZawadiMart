@@ -319,7 +319,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/visibility_off/baseline_visibility_off_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/picture_as_pdf/baseline_picture_as_pdf_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -330,7 +330,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="2e2b2b" />
-                            <entry key="outputName" value="visibilityoff" />
+                            <entry key="outputName" value="pdf" />
                             <entry key="sourceFile" value="C:\Users\HP\AndroidStudioProjects\ZawadiMart" />
                           </map>
                         </option>
