@@ -37,7 +37,7 @@ import com.ojijo.zawadimart.viewmodel.ProductViewModel
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination: String = ROUT_ADD_PRODUCT,
+    startDestination: String = ROUT_REGISTER,
     productViewModel: ProductViewModel = viewModel(),
 
     ) {
